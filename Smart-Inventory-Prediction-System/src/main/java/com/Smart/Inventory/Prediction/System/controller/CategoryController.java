@@ -17,7 +17,7 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RolesAllowed({"ADMIN", "MANAGER"})
+    @RolesAllowed({"ADMIN"})
     @PostMapping
     public void create(@RequestBody CategoryRequest categoryRequest){
 
@@ -39,7 +39,7 @@ public class CategoryController {
         return categoryService.getAll();
     }
 
-    @RolesAllowed({"ADMIN","MANAGER"})
+    @RolesAllowed({"ADMIN"})
     @PutMapping("/{id}")
     public void updateById(@PathVariable ("id") Long categoryId,
                            @RequestBody CategoryRequest categoryRequest){
@@ -47,7 +47,7 @@ public class CategoryController {
         categoryService.updateById(categoryId,categoryRequest);
     }
 
-    @RolesAllowed({"ADMIN","MANAGER"})
+    @RolesAllowed({"ADMIN"})
     @DeleteMapping("/{id}")
     public void delete(@PathVariable ("id") Long categoryId){
 

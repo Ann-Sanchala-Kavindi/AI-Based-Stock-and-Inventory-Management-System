@@ -1,6 +1,8 @@
 package com.Smart.Inventory.Prediction.System.model;
 
 import com.Smart.Inventory.Prediction.System.model.Enum.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
@@ -19,12 +21,14 @@ public class User {
     private Long id;
 
     private String username;
+
+    @JsonIgnore
     private String password;
     private String email;
     private LocalDateTime createdAt;
     private Boolean isActive;
 
-    private Boolean enabled;
+
 
 
 
@@ -34,6 +38,7 @@ public class User {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("user")
     private List<Authority> authorities;
 
     @OneToMany(mappedBy = "manager")

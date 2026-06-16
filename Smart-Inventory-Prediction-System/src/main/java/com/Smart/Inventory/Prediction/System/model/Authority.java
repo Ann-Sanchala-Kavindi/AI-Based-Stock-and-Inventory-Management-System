@@ -1,5 +1,6 @@
 package com.Smart.Inventory.Prediction.System.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
@@ -18,5 +19,6 @@ public class Authority {
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 }

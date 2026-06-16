@@ -13,5 +13,6 @@ public class ProductRequest {
 
     private String name;
     private BigDecimal price;
+    private String brand;
 
 }

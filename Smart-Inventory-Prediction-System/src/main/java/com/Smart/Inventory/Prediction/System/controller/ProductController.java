@@ -41,6 +41,12 @@ public class ProductController {
         return productService.getAll();
     }
 
+    @RolesAllowed({"ADMIN", "MANAGER"})
+    @GetMapping(value = "/categories/{category-id}/products")
+    public List<ProductResponse> getByCategory(@PathVariable("category-id") Long categoryId) {
+        return productService.getByCategory(categoryId);
+    }
+
     @RolesAllowed({"ADMIN" , "MANAGER"})
     @PutMapping(value="/products/{id}")
     public void updateById (@PathVariable ("id") Long productId,
@@ -58,6 +64,6 @@ public class ProductController {
 
         productService.delete(productId);
     }
-    
+
 
 }

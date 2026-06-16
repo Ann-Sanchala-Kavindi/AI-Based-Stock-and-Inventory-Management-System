@@ -11,6 +11,8 @@ public interface ProductService {
 
     ProductResponse getById(Long productId);
 
+    List<ProductResponse> getByCategory(Long categoryId);
+
     List<ProductResponse> getAll();
 
     void updateById(Long productId, ProductRequest productRequest);

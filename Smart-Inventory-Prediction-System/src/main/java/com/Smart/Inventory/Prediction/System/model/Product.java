@@ -2,6 +2,7 @@ package com.Smart.Inventory.Prediction.System.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String brand;
     private String name;
     private BigDecimal price;
     private LocalDateTime createdDate;
@@ -34,8 +36,10 @@ public class Product {
         updatedDate = LocalDateTime.now();
     }
 
+    @ToString.Exclude
+    @JoinColumn(name = "category_id")
     @ManyToOne
-    private Category categories;
+    private Category category;
 
     @ManyToMany
     @JoinTable(

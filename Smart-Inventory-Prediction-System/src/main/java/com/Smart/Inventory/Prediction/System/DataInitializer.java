@@ -28,7 +28,7 @@ public class DataInitializer implements CommandLineRunner {
             User adminUser = new User();
             adminUser.setUsername("admin");
             adminUser.setPassword(passwordEncoder.encode("admin123"));
-            adminUser.setEnabled(true);
+            adminUser.setIsActive(true);
 
             Authority adminAuthority = new Authority();
             adminAuthority.setAuthority("ROLE_ADMIN");
