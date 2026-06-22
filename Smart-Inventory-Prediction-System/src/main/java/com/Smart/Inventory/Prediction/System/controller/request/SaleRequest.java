@@ -15,7 +15,7 @@ public class SaleRequest {
 
     private PaymentMethod paymentMethod;
 
-    private Long managerId;
+
 
     private List<SaleItemRequest> saleItems;
 }

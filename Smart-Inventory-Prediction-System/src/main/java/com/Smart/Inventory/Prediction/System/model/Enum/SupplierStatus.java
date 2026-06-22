@@ -1,6 +1,6 @@
 package com.Smart.Inventory.Prediction.System.model.Enum;
 
-public enum Status {
+public enum SupplierStatus {
 
-    Active,Pending,Inactive
+    ACTIVE,INACTIVE
 }

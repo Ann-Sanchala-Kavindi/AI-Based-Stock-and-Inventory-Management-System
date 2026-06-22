@@ -8,7 +8,7 @@ import java.util.List;
 public interface SaleService {
 
 
-    SaleResponse createSale(SaleRequest request);
+    SaleResponse createSale(SaleRequest request, String username);
 
     SaleResponse getSaleById(Long saleId);
 

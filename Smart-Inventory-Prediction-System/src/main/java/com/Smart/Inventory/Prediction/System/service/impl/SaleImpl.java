@@ -33,16 +33,17 @@ public class SaleImpl implements SaleService {
     private final UserRepository userRepository;
 
     @Override
-    public SaleResponse createSale(SaleRequest request) {
+    public SaleResponse createSale(SaleRequest request, String username) {
 
-        User manager = userRepository.findById(request.getManagerId())
-                .orElseThrow(() ->
-                        new RuntimeException("Manager not found"));
+        User manager = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         Sale sale = new Sale();
         sale.setManager(manager);
         sale.setPaymentMethod(request.getPaymentMethod());
         sale.setSaleDate(LocalDateTime.now());
+
+        // ...everything else stays exactly the same
 
         List<SaleItem> saleItems = new ArrayList<>();
 

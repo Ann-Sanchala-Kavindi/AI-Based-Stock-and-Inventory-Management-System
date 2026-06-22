@@ -7,6 +7,7 @@ import com.Smart.Inventory.Prediction.System.model.Product;
 import com.Smart.Inventory.Prediction.System.service.ProductService;
 import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RolesAllowed({"ADMIN" , "MANAGER"})
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     @PostMapping(value="/categories/{category-id}/products")
     public void create(@PathVariable ("category-id")Long id,
             @RequestBody ProductRequest productRequest){
@@ -27,27 +28,27 @@ public class ProductController {
 
     }
 
-    @RolesAllowed({"ADMIN" , "MANAGER"})
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     @GetMapping(value="/products/{id}")
     public ProductResponse getById(@PathVariable ("id") Long productId){
 
         return productService.getById(productId);
     }
 
-    @RolesAllowed({"ADMIN" , "MANAGER"})
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     @GetMapping(value="/products")
     public List<ProductResponse> getAll(){
 
         return productService.getAll();
     }
 
-    @RolesAllowed({"ADMIN", "MANAGER"})
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     @GetMapping(value = "/categories/{category-id}/products")
     public List<ProductResponse> getByCategory(@PathVariable("category-id") Long categoryId) {
         return productService.getByCategory(categoryId);
     }
 
-    @RolesAllowed({"ADMIN" , "MANAGER"})
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     @PutMapping(value="/products/{id}")
     public void updateById (@PathVariable ("id") Long productId,
                             @RequestBody ProductRequest productRequest){
@@ -58,7 +59,7 @@ public class ProductController {
     }
 
 
-    @RolesAllowed({"ADMIN" , "MANAGER"})
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     @DeleteMapping(value="/products/{id}")
     public void delete(@PathVariable ("id") Long productId){
 
