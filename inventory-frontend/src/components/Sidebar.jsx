@@ -9,10 +9,11 @@ const adminNav = [
 ]
 
 const operationsNav = [
-  { label: "Inventory",    icon: "ti-stack-2",          path: "/inventory" },
-  { label: "Sales",        icon: "ti-receipt",          path: "/sales" },
-  { label: "AI Predictions", icon: "ti-brain",          path: "/predictions" },
-  { label: "Analytics",   icon: "ti-chart-bar",         path: "/analytics" },
+  { label: "Inventory",       icon: "ti-stack-2",   path: "/inventory" },
+  { label: "Purchase Orders", icon: "ti-truck-delivery", path: "/purchase-orders" },  // ✅ add this
+  { label: "Sales",           icon: "ti-receipt",   path: "/sales" },
+  { label: "AI Predictions",  icon: "ti-brain",     path: "/predictions" },
+  { label: "Analytics",       icon: "ti-chart-bar", path: "/analytics" },
 ]
 
 export default function Sidebar() {

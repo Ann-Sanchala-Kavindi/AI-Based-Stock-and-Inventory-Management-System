@@ -1,13 +1,13 @@
 import { NavLink, useNavigate } from "react-router-dom"
 
 const managerNav = [
-  { label: "Dashboard",  icon: "ti-layout-dashboard", path: "/manager-dashboard"            },
-  { label: "Managers",   icon: "ti-users",            path: "/manager-dashboard/managers"   },
-  { label: "Categories", icon: "ti-tags",              path: "/manager-dashboard/categories" }, // ✅ add
-  { label: "Inventory",  icon: "ti-stack-2",          path: "/inventory"                     },
-  { label: "Sales",      icon: "ti-receipt",          path: "/sales"                         },
-  { label: "Products",   icon: "ti-package",          path: "/products"                      },
-  { label: "Suppliers",  icon: "ti-truck",            path: "/suppliers"                      },
+  { label: "Dashboard",        icon: "ti-layout-dashboard", path: "/manager-dashboard" },
+  { label: "Managers",         icon: "ti-users",            path: "/manager-dashboard/managers" },
+  { label: "Categories",       icon: "ti-tags",              path: "/manager-dashboard/categories" },
+  { label: "Purchase Orders",  icon: "ti-truck-delivery",    path: "/manager-dashboard/purchase-orders" }, // ✅ add this
+  { label: "Sales",            icon: "ti-receipt",          path: "/manager-dashboard/sales" },
+  { label: "Products",         icon: "ti-package",          path: "/manager-dashboard/products" },
+  { label: "Suppliers",        icon: "ti-truck",            path: "/suppliers" },
 ]
 
 export default function ManagerSidebar() {
